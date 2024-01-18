@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/15 23:47:52 by sel-jama          #+#    #+#             */
+/*   Updated: 2024/01/18 00:21:29 by sel-jama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
@@ -28,7 +40,8 @@ class Bureaucrat{
         Bureaucrat& operator=(const Bureaucrat& other);
         Bureaucrat(const std::string& name, int grade);
         ~Bureaucrat();
-    private:
+        
+    // private:
         class GradeTooHighException : public std::exception {
             public:
                 const char* what() const throw();

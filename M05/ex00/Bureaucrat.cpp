@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/15 23:47:54 by sel-jama          #+#    #+#             */
+/*   Updated: 2024/01/17 23:37:44 by sel-jama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 const std::string& Bureaucrat::getName() const{
@@ -10,7 +22,7 @@ int Bureaucrat::getGrade() const{
 
 Bureaucrat::Bureaucrat(){}
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other){
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name){
     *this = other;
 }
 
