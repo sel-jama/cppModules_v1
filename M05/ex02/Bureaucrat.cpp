@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:54 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/17 23:37:44 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/20 00:22:23 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,14 @@ const char *Bureaucrat::GradeTooLowException::what() const throw(){
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade): name(name){
-    // try{
-        if (grade < 1)
-            throw (GradeTooHighException());
-        else
-            this->grade = grade;
-    // }
-    // catch(Bureaucrat::GradeTooHighException& obj){
-        // std::cerr << obj.what() << std::endl;
-    // }
-    // try{
-        if (grade > 150)
-            throw (GradeTooLowException());
-        else
-            this->grade = grade;
-    // }
-    // catch(Bureaucrat::GradeTooLowException& obj){
-        // std::cerr << obj.what() << std::endl;
-    // }
+    if (grade < 1)
+        throw (GradeTooHighException());
+    else
+        this->grade = grade;
+    if (grade > 150)
+        throw (GradeTooLowException());
+    else
+        this->grade = grade;
 }
 
 void Bureaucrat::DecrementGrade(){
@@ -82,3 +72,7 @@ void Bureaucrat::IncrementGrade(){
     else
         this->grade--;
 }
+
+// void Bureaucrat::executeForm(AForm const& form){
+    
+// }

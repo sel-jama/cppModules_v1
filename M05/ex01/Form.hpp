@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:44:40 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 01:05:07 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/19 02:51:30 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-class Form : public Bureaucrat 
+class Form : public Bureaucrat
 {
     private:
         const std::string name;
@@ -39,8 +39,6 @@ class Form : public Bureaucrat
         const int &getExecuteGrade(void) const;
 
         void    beSigned(Bureaucrat &b);
-
-        void    signForm(Bureaucrat &b);
 };
 
 //overload insertion

@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 06:42:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 07:12:43 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/19 23:48:53 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ class AForm : public Bureaucrat
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);
         ~AForm();
-        //getters
+        //getters and setters
         void    setIsSigned(bool value);
         bool    &getIsSigned(void);
         const int &getSignGrade(void) const;
         const int &getExecuteGrade(void) const;
 
         virtual void    beSigned(Bureaucrat &b) = 0;
-        void execute(Bureaucrat const & executor);
+        void execute(Bureaucrat const & executor) const;
 };
 
 //overload insertion
-// std::ostream &operator<<(std::ostream &out, AForm &f);
+std::ostream &operator<<(std::ostream &out, AForm &f);
 
 #endif

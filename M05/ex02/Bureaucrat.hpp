@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:52 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 07:15:00 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/20 00:20:50 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
-#include "Form.hpp"
+
+class AForm;
 
 class Bureaucrat{
 
@@ -50,7 +51,7 @@ class Bureaucrat{
             public:
                 const char* what() const throw();
         };
-        void executeForm(Form const & form);
+        void executeForm(AForm const& form);
 };
 
 std::ostream &operator<<(std::ostream& o, Bureaucrat& b);

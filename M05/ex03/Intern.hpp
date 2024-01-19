@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 23:47:47 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/20 00:22:34 by sel-jama         ###   ########.fr       */
+/*   Created: 2024/01/20 00:24:15 by sel-jama          #+#    #+#             */
+/*   Updated: 2024/01/20 00:29:19 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
-int main(){
-    AForm *form = new ShrubberyCreationForm("target1");
-}
+#include <string>
+#include <iostream>
+#include "Form.hpp"
+
+class Intern
+{
+    public:
+        Intern();
+        Intern(const Intern& other);
+        Intern& operator=(const Intern& other);
+        ~Intern();
+
+        Form *makeform(std::string &formName, std::string &formTarget);
+};
+
+
+#endif

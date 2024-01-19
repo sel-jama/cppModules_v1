@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:54 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 00:21:01 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/19 04:01:12 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,19 @@ void Bureaucrat::IncrementGrade(){
         throw (GradeTooHighException());
     else
         this->grade--;
+}
+
+void Bureaucrat::signForm(Form &form) {
+    if (form.getIsSigned() == true)
+    {
+        std::cerr << "Form is already signed" << std::endl;
+        return ;
+    }
+    try {
+        form.beSigned(*this);
+        std::cout << *this << "signed " << form << std::endl;
+    } catch (const GradeTooLowException& e) {
+        std::cout << *this << " couldn’t sign " << form
+                  << " because " << e.what() << std::endl;
+    }
 }

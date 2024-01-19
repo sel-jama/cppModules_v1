@@ -6,14 +6,14 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:03:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 01:07:15 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/19 05:34:13 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form(): name(NULL), signGrade(0), executeGrade(0){
-    // this->isSigned = false;
+    this->isSigned = false;
 }
 
 Form::Form(const std::string &name, const int &signGrade, const int &executeGrade)
@@ -46,9 +46,8 @@ const int &Form::getExecuteGrade(void) const{
 }
 
 std::ostream &operator<<(std::ostream &out, Form &f){
-    out << f.getIsSigned() << std::endl;
-    out << f.getSignGrade() << std::endl;
-    out << f.getExecuteGrade() << std::endl;
+    out << "form of signGrade " << f.getSignGrade()
+        << " and executeGrade " << f.getExecuteGrade() << std::endl;
     return (out);
 }
 
@@ -61,13 +60,8 @@ void Form::beSigned(Bureaucrat &b){
     if (b.getGrade() <= getSignGrade())
     {
         setIsSigned(true);
-        signForm(b);
+        // signForm(b);
     }
     else
-        throw(GradeTooLowException());
-}
-
-void Form::signForm(Bureaucrat &b){
-    // Bureaucrat b;
-    std::cout << b << "signed " << *this <<std::endl;
+        throw GradeTooLowException();
 }
