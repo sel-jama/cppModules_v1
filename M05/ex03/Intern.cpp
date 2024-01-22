@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 00:24:11 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 14:03:09 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:21:45 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,30 @@ Intern& Intern::operator=(const Intern& other){
 
 Intern::~Intern(){}
 
-Form *Intern::makeform(const std::string &formName, const std::string &formTarget) const{
-    std::string forms[3] = {"ShurbberyCreationForm", "RobotomyRequestForm", "PrsidentilaPardonForm"};
+AForm *Intern::makeForm(const std::string &formName, const std::string &formTarget) const{
+    std::string forms[3] = {"shurbbery creation", "robotomy request", "prsidentila pardon"};
     int formId = -1;
     
     for (int i=0; i < 3; i++){ 
         if (forms[i] == formName)
             formId = i;}
     
+    AForm *ret = NULL;
     switch (formId)
     {
         case 0:
-            return new ShurbberyCreationForm();
+            ret = new ShrubberyCreationForm(formTarget);
+            break;
         case 1:
-            return new RobotomyRequestForm();
+            ret = new RobotomyRequestForm(formTarget);
+            break;
         case 2:
-            return new PrsidentilaPardonForm();
-    
-    default:
-        break;
+            ret = new PresidentialPardonForm(formTarget);
+            break;
     }
+    if (!ret)
+        std::cout << "Intern couldn't find form !!" << std::endl;
+    else
+        std::cout << "Intern creates " << *ret << std::endl;
+    return (ret);
 }
