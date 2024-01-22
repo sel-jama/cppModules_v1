@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:52 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 00:13:00 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/21 09:22:27 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class Bureaucrat{
         int grade;
     
     public:
-        // static GradeTooHighException();
-        // static GradeTooLowException();
         const std::string& getName() const;
         int getGrade() const;
 

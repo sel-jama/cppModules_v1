@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:03:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/19 05:34:13 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:08:30 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ const int &Form::getExecuteGrade(void) const{
     return (this->executeGrade);
 }
 
+const std::string& Form::getName(void) const{
+    return (this->name);
+}
+
 std::ostream &operator<<(std::ostream &out, Form &f){
-    out << "form of signGrade " << f.getSignGrade()
+    out << "form "<< f.getName() << " of signGrade " << f.getSignGrade()
         << " and executeGrade " << f.getExecuteGrade() << std::endl;
     return (out);
 }

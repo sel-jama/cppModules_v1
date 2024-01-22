@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:44:40 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/19 02:51:30 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:08:48 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Form : public Bureaucrat
         bool    &getIsSigned(void);
         const int &getSignGrade(void) const;
         const int &getExecuteGrade(void) const;
+        const std::string& getName(void) const;
 
         void    beSigned(Bureaucrat &b);
 };

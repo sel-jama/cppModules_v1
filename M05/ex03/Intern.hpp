@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 00:24:15 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/20 00:29:19 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:40:21 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Intern
         Intern& operator=(const Intern& other);
         ~Intern();
 
-        Form *makeform(std::string &formName, std::string &formTarget);
+        Form *makeform(const std::string &formName, const std::string &formTarget) const;
 };
 
 

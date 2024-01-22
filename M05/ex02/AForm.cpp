@@ -6,13 +6,13 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 07:11:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/19 23:11:39 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:16:17 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(): name(NULL), signGrade(0), executeGrade(0){
+AForm::AForm(): name(""), signGrade(0), executeGrade(0){
     this->isSigned = false;
 }
 
@@ -33,7 +33,7 @@ AForm& AForm::operator=(const AForm& other){
     return (*this);
 }
 
-bool &AForm::getIsSigned(void){
+const bool &AForm::getIsSigned(void) const{
     return (this->isSigned);
 }
 
@@ -45,8 +45,8 @@ const int &AForm::getExecuteGrade(void) const{
     return (this->executeGrade);
 }
 
-std::ostream &operator<<(std::ostream &out, AForm &f){
-    out << "Form of signGrade " << f.getSignGrade()
+std::ostream &operator<<(std::ostream &out,const AForm &f){
+    out << "Form " << f.getName() << " of signGrade " << f.getSignGrade()
         << " and executeGrade " << f.getExecuteGrade() << std::endl;
     return (out);
 }
@@ -55,7 +55,27 @@ void AForm::setIsSigned(bool value){
     this->isSigned = value;
 }
 
-void AForm::execute(Bureaucrat const & executor) const{
-    if (executor.getGrade() > getSignGrade())
+const std::string& AForm::getName(void) const{
+    return (this->name);
+}
+
+const char *AForm::IsSignedException::what() const throw(){
+    return "Form is not signed ...";
+}
+
+void AForm::beSigned(Bureaucrat &b){
+    if (b.getGrade() <= getSignGrade())
+    {
+        setIsSigned(true);
+        // signForm(b);
+    }
+    else
         throw GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat const & executor) const{
+    if (executor.getGrade() > getExecuteGrade())
+        throw GradeTooLowException();
+    if (getIsSigned() == false)
+        throw IsSignedException();
 }

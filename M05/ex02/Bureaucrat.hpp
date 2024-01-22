@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:52 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/20 00:20:50 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:14:14 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+// #include "AForm.hpp"
 
 class AForm;
 
@@ -28,8 +29,6 @@ class Bureaucrat{
         int grade;
     
     public:
-        // static GradeTooHighException();
-        // static GradeTooLowException();
         const std::string& getName() const;
         int getGrade() const;
 
@@ -51,9 +50,10 @@ class Bureaucrat{
             public:
                 const char* what() const throw();
         };
-        void executeForm(AForm const& form);
+        void signForm(AForm &form);
+        void executeForm(AForm const & form);
 };
 
-std::ostream &operator<<(std::ostream& o, Bureaucrat& b);
+std::ostream &operator<<(std::ostream& o, const Bureaucrat& b);
 
 #endif

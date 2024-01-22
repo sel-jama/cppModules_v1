@@ -6,11 +6,12 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:54 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/20 00:22:23 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:02:28 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 const std::string& Bureaucrat::getName() const{
     return (this->name);
@@ -34,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat(){}
 
-std::ostream &operator<<(std::ostream& o, Bureaucrat& b)
+std::ostream &operator<<(std::ostream& o, const Bureaucrat& b)
 {
     o << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
     return o;
@@ -73,6 +74,27 @@ void Bureaucrat::IncrementGrade(){
         this->grade--;
 }
 
-// void Bureaucrat::executeForm(AForm const& form){
-    
-// }
+void Bureaucrat::signForm(AForm& form){
+    if (form.getIsSigned() == true)
+    {
+        std::cerr << "Form is already signed" << std::endl;
+        return ;
+    }
+    try {
+        form.beSigned(*this);
+        std::cout << *this << "signed " << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << *this << " couldn’t sign " << form
+                  << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const AForm& f)
+{
+	if (f.getIsSigned()){
+		f.execute(*this);
+    }
+    else{
+        std::cerr << "Form must be signed before executing .." << std::endl;
+    }
+}

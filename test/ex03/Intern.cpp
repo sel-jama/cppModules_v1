@@ -16,13 +16,13 @@ Form	*Intern::makeForm(const std::string& formName, const std::string& target) c
 {
 	Form	*result;
 
-	t_form	data[] = 
-	{
-		{ "presidential pardon", new PresidentialPardonForm(target) },
-		{ "robotomy request", new RobotomyRequestForm(target) },
-		{ "shrubbery creation", new ShrubberyCreationForm(target) },
-		{ "", NULL }
-	};
+	// t_form	data[] = 
+	// {
+	// 	{ "presidential pardon", new PresidentialPardonForm(target) },
+	// 	{ "robotomy request", new RobotomyRequestForm(target) },
+	// 	{ "shrubbery creation", new ShrubberyCreationForm(target) },
+	// 	{ "", NULL }
+	// };
 
 	result = NULL;
 	for (int i = 0; data[i].form != NULL; i++)

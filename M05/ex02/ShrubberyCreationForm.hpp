@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 06:50:25 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/20 00:13:15 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/21 10:00:58 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,13 @@ class ShrubberyCreationForm : public AForm
 };
 
 #endif
+
+
+// void Bureaucrat::executeForm(const AForm& form) const {
+//     try {
+//         form.execute(*this);
+//         std::cout << name << " executed " << form.getName() << std::endl;
+//     } catch (const std::exception& e) {
+//         std::cerr << name << " failed to execute " << form.getName() << ": " << e.what() << std::endl;
+//     }
+// }

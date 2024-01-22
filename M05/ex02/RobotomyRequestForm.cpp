@@ -6,16 +6,16 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 07:07:29 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/20 00:15:18 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:49:18 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(){}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), target(""){}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-    : AForm("Robotomy Request Form", 72, 45), target(target){}
+    : AForm("RobotomyRequestForm", 72, 45), target(target){}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
@@ -42,14 +42,14 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const{
     }
     catch(std::exception &e)
     {
-        std::cerr << target << " " << e.what() << std::endl;
+        std::cerr << executor.getName() << " couldn't execute form because " << e.what() << std::endl;
         return ;
     }
 
     std::cout << "Making drilling noises..." << std::endl;
 
     if (rand() % 2 == 0){
-        std::cout << target << " has been robotomized successfully!" << std::endl;
+        std::cout << getTarget() << " has been robotomized successfully!" << std::endl;
     }else{
         std::cerr << "Robotomization failed for " << target << std::endl;
     }
