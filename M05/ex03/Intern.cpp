@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 00:24:11 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 19:21:45 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/23 09:52:10 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &formTarg
         case 2:
             ret = new PresidentialPardonForm(formTarget);
             break;
+        default:
+            std::cout << "Intern couldn't find form !!" << std::endl;
     }
-    if (!ret)
-        std::cout << "Intern couldn't find form !!" << std::endl;
-    else
+    if (ret)
         std::cout << "Intern creates " << *ret << std::endl;
     return (ret);
 }
