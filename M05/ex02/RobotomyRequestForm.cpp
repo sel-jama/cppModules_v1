@@ -19,7 +19,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other){
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):AForm(other){
     *this = other;
 }
 
@@ -38,7 +38,7 @@ const std::string &RobotomyRequestForm::getTarget(void) const{
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const{
     try{
-        AForm::execute(executor);
+        AForm::executeAction(executor);
     }
     catch(std::exception &e)
     {

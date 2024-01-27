@@ -18,7 +18,7 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-class Form : public Bureaucrat
+class Form
 {
     private:
         const std::string name;
@@ -38,6 +38,15 @@ class Form : public Bureaucrat
         const int &getSignGrade(void) const;
         const int &getExecuteGrade(void) const;
         const std::string& getName(void) const;
+
+        class GradeTooHighException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
 
         void    beSigned(Bureaucrat &b);
 };

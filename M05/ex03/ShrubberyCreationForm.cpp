@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 07:10:51 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 19:12:09 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:49:50 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShurbberyCreationForm", 145, 137), target(""){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target):
-    AForm("ShurbberyCreationForm", 145, 137), target(target){
+    AForm("ShurbberyCreattionForm", 145, 137), target(target){
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other){
@@ -39,7 +39,7 @@ const std::string &ShrubberyCreationForm::getTarget(void) const{
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     try{
-        AForm::execute(executor);
+        AForm::executeAction(executor);
     }
     catch(std::exception &e){
         std::cerr << executor.getName() << " couldn't execute form because " << e.what() << std::endl;

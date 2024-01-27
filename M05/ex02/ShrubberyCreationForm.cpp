@@ -39,7 +39,7 @@ const std::string &ShrubberyCreationForm::getTarget(void) const{
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
     try{
-        AForm::execute(executor);
+        AForm::executeAction(executor);
     }
     catch(std::exception &e){
         std::cerr << executor.getName() << " couldn't execute form because " << e.what() << std::endl;

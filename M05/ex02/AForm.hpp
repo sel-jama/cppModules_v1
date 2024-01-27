@@ -20,7 +20,7 @@
 
 class Bureaucrat;
 
-class AForm : public Bureaucrat
+class AForm
 {
     private:
         const std::string name;
@@ -43,6 +43,16 @@ class AForm : public Bureaucrat
 
         void    beSigned(Bureaucrat &b);
         virtual void execute(Bureaucrat const & executor) const = 0;
+        void executeAction(Bureaucrat const & executor) const;
+
+        class GradeTooHighException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
 
         class IsSignedException : public std::exception {
             public :
