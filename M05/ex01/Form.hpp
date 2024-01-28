@@ -48,11 +48,14 @@ class Form
                 const char* what() const throw();
         };
 
+<<<<<<< HEAD
         class IsSignedException : public std::exception {
             public :
                 const char* what() const throw();
         };
         
+=======
+>>>>>>> 721a4dd851efe70bb1a830185c09f6b0863973df
         void    beSigned(Bureaucrat &b);
 };
 

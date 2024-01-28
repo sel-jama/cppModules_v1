@@ -77,7 +77,10 @@ const char *Form::GradeTooHighException::what() const throw(){
 const char *Form::GradeTooLowException::what() const throw(){
     return "Grade is too low";
 }
+<<<<<<< HEAD
 
 const char *Form::IsSignedException::what() const throw(){
     return "Form is already signed ...";
 }
+=======
+>>>>>>> 721a4dd851efe70bb1a830185c09f6b0863973df
