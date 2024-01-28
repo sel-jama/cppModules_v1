@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:48:01 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/18 09:24:50 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:09:53 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(){
         use.DecrementGrade();
     }
     catch(std::exception& exp){
-        std::cout << "Decrementing failed >>" << std::endl;
+        std::cout << "Decrementing failed :" << std::endl;
         std::cout << exp.what() <<std::endl;
     }
 
@@ -48,7 +48,7 @@ int main(){
         use.IncrementGrade();
     }
     catch(std::exception& exp){
-        std::cout << "Incrementing failed >>" << std::endl;
+        std::cout << "Incrementing failed :" << std::endl;
         std::cout << exp.what() <<std::endl;
     }
 }

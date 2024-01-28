@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 06:42:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 19:17:51 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:53:01 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 class Bureaucrat;
 
-class AForm : public Bureaucrat
+class AForm
 {
     private:
         const std::string name;
@@ -44,7 +44,16 @@ class AForm : public Bureaucrat
         void    beSigned(Bureaucrat &b);
         virtual void execute(Bureaucrat const & executor) const = 0;
         virtual const std::string &getTarget(void) const = 0;
-        
+        void executeAction(Bureaucrat const & executor) const;
+
+        class GradeTooHighException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception {
+            public:
+                const char* what() const throw();
+        };
 
         class IsSignedException : public std::exception {
             public :

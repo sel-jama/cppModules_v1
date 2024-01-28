@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:54 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/19 04:01:12 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:20:08 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,38 +50,27 @@ const char *Bureaucrat::GradeTooLowException::what() const throw(){
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade): name(name){
-    // try{
-        if (grade < 1)
-            throw (GradeTooHighException());
-        else
-            this->grade = grade;
-    // }
-    // catch(Bureaucrat::GradeTooHighException& obj){
-        // std::cerr << obj.what() << std::endl;
-    // }
-    // try{
-        if (grade > 150)
-            throw (GradeTooLowException());
-        else
-            this->grade = grade;
-    // }
-    // catch(Bureaucrat::GradeTooLowException& obj){
-        // std::cerr << obj.what() << std::endl;
-    // }
+    if (grade < 1)
+        throw (GradeTooHighException());
+        
+    else if (grade > 150)
+        throw (GradeTooLowException());
+    
+    this->grade = grade;
 }
 
 void Bureaucrat::DecrementGrade(){
-    if (++this->grade > 150)
+    if (++this->grade >= 150)
         throw (GradeTooLowException());
-    else
-        this->grade++;
+
+    this->grade++;
 }
 
 void Bureaucrat::IncrementGrade(){
-    if (--this->grade < 1)
+    if (this->grade <= 1)
         throw (GradeTooHighException());
-    else
-        this->grade--;
+
+    this->grade--;
 }
 
 void Bureaucrat::signForm(Form &form) {

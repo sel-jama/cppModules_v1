@@ -37,7 +37,7 @@ const std::string &PresidentialPardonForm::getTarget(void) const{
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const{
     try{
-        AForm::execute(executor);
+        AForm::executeAction(executor);
     }
     catch(std::exception &e){
         std::cerr << executor.getName() << " couldn't execute form because " << e.what() << std::endl;

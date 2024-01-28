@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:03:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 10:08:30 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:25:11 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,15 @@ void Form::setIsSigned(bool value)
 
 void Form::beSigned(Bureaucrat &b){
     if (b.getGrade() <= getSignGrade())
-    {
         setIsSigned(true);
-        // signForm(b);
-    }
     else
         throw GradeTooLowException();
+}
+
+const char *Form::GradeTooHighException::what() const throw(){
+    return "Grade is too high";
+}
+
+const char *Form::GradeTooLowException::what() const throw(){
+    return "Grade is too low";
 }

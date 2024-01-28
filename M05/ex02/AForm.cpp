@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 07:11:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 13:16:17 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:34:06 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,26 @@ const std::string& AForm::getName(void) const{
     return (this->name);
 }
 
+const char *AForm::GradeTooHighException::what() const throw(){
+    return "Grade is too high";
+}
+
+const char *AForm::GradeTooLowException::what() const throw(){
+    return "Grade is too low";
+}
+
 const char *AForm::IsSignedException::what() const throw(){
     return "Form is not signed ...";
 }
 
 void AForm::beSigned(Bureaucrat &b){
     if (b.getGrade() <= getSignGrade())
-    {
         setIsSigned(true);
-        // signForm(b);
-    }
     else
         throw GradeTooLowException();
 }
 
-void AForm::execute(Bureaucrat const & executor) const{
+void AForm::executeAction(Bureaucrat const & executor) const{
     if (executor.getGrade() > getExecuteGrade())
         throw GradeTooLowException();
     if (getIsSigned() == false)
