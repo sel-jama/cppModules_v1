@@ -6,20 +6,12 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:47:54 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/27 12:20:08 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:44:30 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
-const std::string& Bureaucrat::getName() const{
-    return (this->name);
-}
-
-int Bureaucrat::getGrade() const{
-    return (this->grade);
-}
 
 Bureaucrat::Bureaucrat(){}
 
@@ -34,6 +26,14 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 }
 
 Bureaucrat::~Bureaucrat(){}
+
+const std::string& Bureaucrat::getName() const{
+    return (this->name);
+}
+
+int Bureaucrat::getGrade() const{
+    return (this->grade);
+}
 
 std::ostream &operator<<(std::ostream& o, Bureaucrat& b)
 {
@@ -60,7 +60,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): name(name){
 }
 
 void Bureaucrat::DecrementGrade(){
-    if (++this->grade >= 150)
+    if (this->grade >= 150)
         throw (GradeTooLowException());
 
     this->grade++;
@@ -74,15 +74,10 @@ void Bureaucrat::IncrementGrade(){
 }
 
 void Bureaucrat::signForm(Form &form) {
-    if (form.getIsSigned() == true)
-    {
-        std::cerr << "Form is already signed" << std::endl;
-        return ;
-    }
     try {
         form.beSigned(*this);
         std::cout << *this << "signed " << form << std::endl;
-    } catch (const GradeTooLowException& e) {
+    } catch (const std::exception& e) {
         std::cout << *this << " couldn’t sign " << form
                   << " because " << e.what() << std::endl;
     }

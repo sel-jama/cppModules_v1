@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:44:40 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/27 12:18:21 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:38:33 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ class Form
                 const char* what() const throw();
         };
 
+        class IsSignedException : public std::exception {
+            public :
+                const char* what() const throw();
+        };
+        
         void    beSigned(Bureaucrat &b);
 };
 

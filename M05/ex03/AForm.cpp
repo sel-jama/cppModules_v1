@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 07:11:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/22 13:16:17 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:14:33 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,7 @@ const char *AForm::IsSignedException::what() const throw(){
 
 void AForm::beSigned(Bureaucrat &b){
     if (b.getGrade() <= getSignGrade())
-    {
         setIsSigned(true);
-        // signForm(b);
-    }
     else
         throw GradeTooLowException();
 }

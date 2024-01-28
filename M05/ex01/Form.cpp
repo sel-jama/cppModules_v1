@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 23:03:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/27 12:25:11 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:52:26 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ const std::string& Form::getName(void) const{
 }
 
 std::ostream &operator<<(std::ostream &out, Form &f){
-    out << "form "<< f.getName() << " of signGrade " << f.getSignGrade()
+    out << f.getName() << " of signGrade " << f.getSignGrade()
         << " and executeGrade " << f.getExecuteGrade() << std::endl;
     return (out);
 }
@@ -61,6 +61,9 @@ void Form::setIsSigned(bool value)
 }
 
 void Form::beSigned(Bureaucrat &b){
+    if (getIsSigned() == true)
+        throw IsSignedException();
+    
     if (b.getGrade() <= getSignGrade())
         setIsSigned(true);
     else
@@ -73,4 +76,8 @@ const char *Form::GradeTooHighException::what() const throw(){
 
 const char *Form::GradeTooLowException::what() const throw(){
     return "Grade is too low";
+}
+
+const char *Form::IsSignedException::what() const throw(){
+    return "Form is already signed ...";
 }

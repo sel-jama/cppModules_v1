@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 06:42:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/28 16:35:26 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/29 00:35:24 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ class AForm
         };
 
         class IsSignedException : public std::exception {
+            private:
+                const char *err;
             public :
+                IsSignedException(const char *str);
                 const char* what() const throw();
         };
 };

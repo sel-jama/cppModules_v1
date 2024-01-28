@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 07:11:08 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/01/28 16:34:06 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/01/29 00:37:24 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,16 @@ const char *AForm::GradeTooLowException::what() const throw(){
 }
 
 const char *AForm::IsSignedException::what() const throw(){
-    return "Form is not signed ...";
+    return err;
 }
 
+AForm::IsSignedException::IsSignedException(const char *str) : err(str){}
+
 void AForm::beSigned(Bureaucrat &b){
+
+     if (getIsSigned() == true)
+        throw IsSignedException("Form is already signed !!");
+    
     if (b.getGrade() <= getSignGrade())
         setIsSigned(true);
     else
@@ -82,5 +88,5 @@ void AForm::executeAction(Bureaucrat const & executor) const{
     if (executor.getGrade() > getExecuteGrade())
         throw GradeTooLowException();
     if (getIsSigned() == false)
-        throw IsSignedException();
+        throw IsSignedException("Form is not signed !!");
 }
