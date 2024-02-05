@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 04:28:00 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/04 06:20:15 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:34:53 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ Base * generate(void){
     switch (randNUm)
     {
     case 1:
-        return &A();
+        return new A();
     case 2:
-        return &B();
+        return new B();
     case 3:
-        return &C();
+        return new C();
     default:
         std::cout << "Someting went wrong, pleaze try again.." << std::endl;
         break;
@@ -44,32 +44,35 @@ void identify(Base* p){
     id2 = dynamic_cast<B*>(p);
     id3 = dynamic_cast<C*>(p);
     
-    try{
-        if (id1 != nullptr)
-            throw id1;
-        if (id2 != nullptr)
-            throw id2;
-        throw id3;
-    }
-    catch(Base *id){
-        std::cout << id << std::endl;
-    }
+    if (id1)
+        std::cout << "A";
+    else if (id2)
+        std::cout << "B";
+    else if (id3)
+        std::cout << "C";
+    else
+        std::cout << "Error";
+
+    std::cout << std::endl;
 }
 
 void identify(Base& p){
     try{
         A &id1 = dynamic_cast<A&>(p);
-        std::cout << &id1 << std::endl;
+        (void)id1;
+        std::cout << "A" << std::endl;
     }
     catch(std::exception &e){
         try{
             B &id2 = dynamic_cast<B&>(p);
-            std::cout << &id2 << std::endl;
+            (void)id2;
+            std::cout << "B" << std::endl;
         }
         catch(std::exception &e){
             try{
                 C &id3 = dynamic_cast<C&>(p);
-                std::cout << &id3 << std::endl;
+                (void)id3;
+                std::cout << "C" << std::endl;
             }
             catch(std::exception &e){
                 std::cout << e.what() << std::endl;
