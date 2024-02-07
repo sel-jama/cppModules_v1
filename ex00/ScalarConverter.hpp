@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:01:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/05 04:30:35 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/06 05:24:07 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include <iostream>
 #include <string>
+
+#include <iostream>
+#include <cstdlib>
+#include <cctype>
+#include <math.h>
+#include <sstream>
 
 class ScalarConverter{
     public:
@@ -26,5 +32,11 @@ class ScalarConverter{
         static void convert(const std::string &literal);
         static const std::string detectType(const std::string &literal);
 };
+
+void printInt(const std::string &str);
+void printChar(const std::string &str);
+void printFloat(const std::string &str);
+void printDouble(const std::string &str);
+bool isZero(const char *s);
 
 #endif
