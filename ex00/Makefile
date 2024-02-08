@@ -6,11 +6,11 @@
 #    By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 02:44:31 by sel-jama          #+#    #+#              #
-#    Updated: 2024/02/05 04:53:09 by sel-jama         ###   ########.fr        #
+#    Updated: 2024/02/08 16:51:12 by sel-jama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp ScalarConverter.cpp Char.cpp Double.cpp Float.cpp Int.cpp utils.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 

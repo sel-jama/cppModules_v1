@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:02:09 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 14:02:27 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:51:45 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 /*utils*/
 
-bool isInt(const std::string &str){
+bool isInt(const std::string &str)
+{
 	const char *s = str.c_str();
-    char* n;
+	char *n;
 
-    std::strtol(s, &n, 10);
+	std::strtol(s, &n, 10);
 	if (*n == '\0')
 		return true;
 	return false;
 }
 
-bool isChar(const std::string &str){
+bool isChar(const std::string &str)
+{
 	if (str.length() == 1 && (isalpha(str[0])))
 		return true;
 	return false;
 }
 
-bool isFloat(const std::string &str){
+bool isFloat(const std::string &str)
+{
 	if (str.empty())
 		return false;
 	if (str == "-inff" || str == "inff" || str == "+inff" || str == "nanf")
@@ -39,7 +42,8 @@ bool isFloat(const std::string &str){
 	int count = 0;
 	if (str[str.length() - 1] != 'f')
 		return false;
-	for (unsigned int i = 0; str[i]; i++){
+	for (unsigned int i = 0; str[i]; i++)
+	{
 		if (i == 0 && (str[i] == '-' || str[i] == '+'))
 			i++;
 		if (str[i] == '.')
@@ -47,20 +51,23 @@ bool isFloat(const std::string &str){
 		else if (i != str.length() - 1 && !isdigit(str[i]))
 			return false;
 	}
-	if (count == 1 && str[0] != '.' && str[str.length() - 2] != '.'){
+	if (count == 1 && str[0] != '.' && str[str.length() - 2] != '.')
+	{
 		return true;
 	}
 	return false;
 }
 
-bool isDouble(const std::string &str){
+bool isDouble(const std::string &str)
+{
 	if (str.empty())
 		return false;
 	if (str == "-inf" || str == "inf" || str == "+inf" || str == "nan")
 		return true;
 
 	int count = 0;
-	for (unsigned int i = 0; str[i]; i++){
+	for (unsigned int i = 0; str[i]; i++)
+	{
 		if (i == 0 && (str[i] == '-' || str[i] == '+'))
 			i++;
 		if (str[i] == '.')
@@ -68,18 +75,21 @@ bool isDouble(const std::string &str){
 		else if (!isdigit(str[i]))
 			return false;
 	}
-	if (count == 1 && str[0] != '.' && str[str.length() - 1] != '.'){
+	if (count == 1 && str[0] != '.' && str[str.length() - 1] != '.')
+	{
 		return true;
 	}
 	return false;
 }
 
-bool isZero(const char *s){
+bool isZero(const char *s)
+{
 	const char *point = strchr(s, '.');
 	if (!point)
 		return false;
 	point++;
-	while ((*point) != '\0'){
+	while ((*point) != '\0')
+	{
 		if (*point == 'f' && *(point + 1) == '\0')
 			return true;
 		if (*point != '0')

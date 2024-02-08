@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:01:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 11:42:33 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:59:36 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@
 #include <limits>
 
 class ScalarConverter{
-    public:
-        ScalarConverter();
-        ScalarConverter(const ScalarConverter &other);
-        ScalarConverter &operator=(const ScalarConverter &other);
-        ~ScalarConverter();
+    ScalarConverter();
+    ~ScalarConverter();
     
+    public:
         static void convert(const std::string &literal);
         static const std::string detectType(const std::string &literal);
 };

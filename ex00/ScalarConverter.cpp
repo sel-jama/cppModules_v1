@@ -6,26 +6,15 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 16:33:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 14:02:00 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:59:32 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <float.h>
-
 
 ScalarConverter::ScalarConverter(){}
 
 ScalarConverter::~ScalarConverter(){}
-
-ScalarConverter::ScalarConverter(const ScalarConverter &other){
-	*this = other;
-}
-
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other){
-	(void)other;
-	return (*this);
-}
 
 const std::string ScalarConverter::detectType(const std::string &literal)
 {
@@ -46,8 +35,7 @@ void ScalarConverter::convert(const std::string &literal)
 		return;
 
 	const std::string type = detectType(literal);
-	if (type.empty())
-		return;
+	
 	if (type == "int")
 		printInt(literal);
 	else if (type == "char")
@@ -56,4 +44,6 @@ void ScalarConverter::convert(const std::string &literal)
 		printFloat(literal);
 	else if (type == "double")
 		printDouble(literal);
+	else
+		std::cout << "Well, would you look at that? This type isn't managed in the code! Because who needs complete coverage, right?" << std::endl;
 }

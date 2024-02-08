@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 13:57:18 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 13:57:41 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:48:27 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void printFloat(const std::string &str) {
 			std::cout << intValue << std::endl;
 	}
 	
-	if (value < std::numeric_limits<float>::min() || value > std::numeric_limits<float>::max())
+	if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
 		std::cout << "float: impossible" << std::endl;
 	else{
 		std::cout << "float: " << value;
@@ -52,7 +52,7 @@ void printFloat(const std::string &str) {
 	
 	double DblVal = static_cast<double>(value);
 	std::cout << "double: ";
-	if (DblVal < std::numeric_limits<double>::min() || DblVal > std::numeric_limits<double>::max())
+	if (DblVal < -std::numeric_limits<double>::max() || DblVal > std::numeric_limits<double>::max())
 		std::cout << "impossible";
 	else{
 		std::cout << DblVal;

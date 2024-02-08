@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 02:41:18 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/07 06:32:52 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:57:51 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int main(int ac, char **av)
 {
-    ScalarConverter scalar;
-
     if (ac == 2)
-        scalar.convert(av[1]);
+        ScalarConverter::convert(av[1]);
     else
         std::cout << "Wrong number of argument..." << std::endl;
     
