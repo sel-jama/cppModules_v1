@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:20:19 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 11:59:06 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/09 10:02:36 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Serializer::Serializer(){}
 Serializer::~Serializer(){}
 
 uintptr_t Serializer::serialize(Data* ptr){
-    return uintptr_t(ptr);
+    return reinterpret_cast<uintptr_t>(ptr);
 }
 
 Data *Serializer::deserialize(uintptr_t raw){
-    return (Data *)raw;
+    return reinterpret_cast<Data*>(raw);
 }
