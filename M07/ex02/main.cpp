@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:12:23 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/13 13:14:35 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:08:39 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+    system("leaks Array");
     return 0;
 }
