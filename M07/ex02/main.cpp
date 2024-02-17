@@ -60,7 +60,7 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
-    system("leaks Array");
+    delete [] mirror;
+    //system("leaks Array");
     return 0;
 }
