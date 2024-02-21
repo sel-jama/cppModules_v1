@@ -6,10 +6,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++ -std=c++98
 
-NAME = container
+NAME = Stack
 
-HEADERS = easyfind.hpp
-
+HEADERS = MutantStack.hpp
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${HEADERS}

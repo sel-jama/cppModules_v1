@@ -4,6 +4,7 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#define IT std::vector<int>::iterator
 
 class Span {
     private:
@@ -25,15 +26,19 @@ class Span {
             public:
                 const char *what() const throw();
         };
-};
 
-//    template<typename InputIterator>
-//     void addNumbers(InputIterator first, InputIterator last) {
-//         unsigned int count = std::distance(first, last);
-//         if (numbers.size() + count > max_size) {
-//             throw std::runtime_error("Adding too many numbers exceeds Span capacity");
-//         }
-//         numbers.insert(numbers.end(), first, last);
-//     }
+        class TooMany : public std::exception{
+            public:
+                const char *what() const throw();
+        };
+
+        class NoSpan : public std::exception {
+            public:
+                const char *what() const throw();
+        };
+
+        void addNumbers(IT first, IT last);
+
+};
 
 #endif
