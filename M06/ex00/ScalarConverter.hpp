@@ -19,6 +19,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
+#include <cstring>
 #include <math.h>
 #include <limits>
 
@@ -40,5 +41,6 @@ bool isDouble(const std::string &str);
 bool isFloat(const std::string &str);
 bool isInt(const std::string &str);
 bool isChar(const std::string &str);
+bool isPseudo(const std::string &s);
 
 #endif

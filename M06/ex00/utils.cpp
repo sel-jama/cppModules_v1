@@ -98,3 +98,10 @@ bool isZero(const char *s)
 	}
 	return true;
 }
+
+bool isPseudo(const std::string &s){
+	if (s == "inf" || s == "+inf" || s == "-inf" || s == "nan" 
+		|| s == "inff" || s == "+inff" || s == "-inff" || s == "nanf")
+			return true;
+	return false;
+}

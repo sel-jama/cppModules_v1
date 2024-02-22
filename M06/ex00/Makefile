@@ -14,7 +14,7 @@ SRCS = main.cpp ScalarConverter.cpp Char.cpp Double.cpp Float.cpp Int.cpp utils.
 
 OBJS = ${SRCS:.cpp=.o}
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 CC = c++ -std=c++98
 

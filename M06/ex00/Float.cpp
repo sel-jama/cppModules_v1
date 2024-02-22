@@ -20,13 +20,13 @@ void printFloat(const std::string &str) {
 		flag = 1;
 	float value = std::strtof(s, nullptr);
 
-	if (str == "-inff" || str == "inff" || str == "+inff" || str == "nanf"){
+	if (isPseudo(str)){
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
 	else{
 		std::cout << "char: ";
-		if (std::isprint(value))
+		if (value)
 			std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
 		else
 			std::cout << "Non displayable" << std::endl;
@@ -39,7 +39,7 @@ void printFloat(const std::string &str) {
 			std::cout << intValue << std::endl;
 	}
 	
-	if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
+	if (!isPseudo(str) && (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max()))
 		std::cout << "float: impossible" << std::endl;
 	else{
 		std::cout << "float: " << value;
@@ -50,12 +50,12 @@ void printFloat(const std::string &str) {
 		std::cout << std::endl;
 	}
 	
-	double DblVal = static_cast<double>(value);
+	double d = static_cast<double>(value);
 	std::cout << "double: ";
-	if (DblVal < -std::numeric_limits<double>::max() || DblVal > std::numeric_limits<double>::max())
+	if (!isPseudo(str) && (d < -std::numeric_limits<double>::max() || d > std::numeric_limits<double>::max()))
 		std::cout << "impossible";
 	else{
-		std::cout << DblVal;
+		std::cout << d;
 		if (flag)
 			std::cout << ".0";
 	}

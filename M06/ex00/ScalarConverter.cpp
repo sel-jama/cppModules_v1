@@ -45,5 +45,5 @@ void ScalarConverter::convert(const std::string &literal)
 	else if (type == "double")
 		printDouble(literal);
 	else
-		std::cout << "Well, would you look at that? This type isn't managed in the code! Because who needs complete coverage, right?" << std::endl;
+		std::cout << "This type isn't managed in the code! " << std::endl;
 }
