@@ -6,19 +6,18 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:00:06 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 18:41:42 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/27 06:31:27 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 void printInt(const std::string &str) {
-	std::cout << "It's an int" << std::endl;
 	const char *s = str.c_str();
 	int value = std::strtol(s, nullptr, 10);
 
 	std::cout << "char: ";
-	if (std::isprint(value))
+	if (ft_isprint(value))
 		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
 	else
 		std::cout << "Non displayable" << std::endl;

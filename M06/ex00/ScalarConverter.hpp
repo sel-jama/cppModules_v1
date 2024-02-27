@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:01:42 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 17:59:36 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/27 06:29:05 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ bool isFloat(const std::string &str);
 bool isInt(const std::string &str);
 bool isChar(const std::string &str);
 bool isPseudo(const std::string &s);
+bool ft_isprint(char c);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 02:44:31 by sel-jama          #+#    #+#              #
-#    Updated: 2024/02/08 16:51:12 by sel-jama         ###   ########.fr        #
+#    Updated: 2024/02/27 09:51:30 by sel-jama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS = main.cpp ScalarConverter.cpp Char.cpp Double.cpp Float.cpp Int.cpp utils.
 
 OBJS = ${SRCS:.cpp=.o}
 
-CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++ -std=c++98
 

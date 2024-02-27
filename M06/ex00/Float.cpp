@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 13:57:18 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 18:48:27 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:48:40 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void printFloat(const std::string &str) {
 	int flag = 0;
-	std::cout << "It's a float" << std::endl;
 	const char *s = str.c_str();
 	if (isZero(s))
 		flag = 1;
@@ -26,7 +25,7 @@ void printFloat(const std::string &str) {
 	}
 	else{
 		std::cout << "char: ";
-		if (value)
+		if (ft_isprint(value))
 			std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
 		else
 			std::cout << "Non displayable" << std::endl;

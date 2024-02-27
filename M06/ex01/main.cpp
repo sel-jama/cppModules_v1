@@ -6,14 +6,14 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 04:07:19 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/02 04:15:15 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/26 07:17:29 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
 int main(){
-    // Serializer obj;
+
     Data ptr;
     ptr.grade = 10;
     ptr.student = "Kiven";

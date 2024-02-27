@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:02:09 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 16:51:45 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:23:39 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool isFloat(const std::string &str)
 {
 	if (str.empty())
 		return false;
-	if (str == "-inff" || str == "inff" || str == "+inff" || str == "nanf")
+	if (isPseudo(str))
 		return true;
 
 	int count = 0;
@@ -104,4 +104,8 @@ bool isPseudo(const std::string &s){
 		|| s == "inff" || s == "+inff" || s == "-inff" || s == "nanf")
 			return true;
 	return false;
+}
+
+bool ft_isprint(char c){
+    return std::isprint(static_cast<unsigned char>(c));
 }

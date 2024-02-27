@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 13:58:05 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/08 19:01:58 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/27 08:40:59 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void printDouble(const std::string &str) {
 	int flag = 0;
-	std::cout << "It's a double" << std::endl;
 	const char *s = str.c_str();
 	if (isZero(s))
 		flag = 1;
@@ -27,7 +26,7 @@ void printDouble(const std::string &str) {
 	}
 	else{
 		std::cout << "char: ";
-		if (value)
+		if (ft_isprint(value))
 			std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
 		else
 			std::cout << "Non displayable" << std::endl;
