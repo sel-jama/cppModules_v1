@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:29:52 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/16 16:09:19 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:56:59 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Array {
 
 template <class T>
 Array<T>::Array():Arraysize(0){
-    this->array = new T[this->Arraysize];
+    this->array = NULL;
 }
 
 template <class T>
@@ -60,14 +60,14 @@ Array<T>::Array(const Array& original): Arraysize(original.Arraysize){
 
 template <class T>
 const Array<T> &Array<T>::operator=(const Array<T> &original){
-    if (this->array)
+    if (this->array){
         delete[] this->array;
-    if (original.Arraysize > 0){
-        this->Arraysize = original.Arraysize;
-        this->array = new T[Arraysize];
-        for (unsigned int i = 0; i < Arraysize; i++){
-            this->array[i] = original.array[i];
-        }
+    }
+        
+    this->Arraysize = original.Arraysize;
+    this->array = new T[Arraysize];
+    for (unsigned int i = 0; i < Arraysize; i++){
+        this->array[i] = original.array[i];
     }
     return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:12:23 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/02/16 16:08:39 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:56:50 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int, char**)
     }
     //SCOPE
     {
+        
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
