@@ -23,6 +23,34 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
-    std::stack<int> s(mstack);
+    std::cout << "-------" << std::endl;
+
+    MutantStack<int> mutantStack;
+    MutantStack<int> newStk;
+
+
+    mutantStack.push(10);
+    mutantStack.push(20);
+    mutantStack.push(30);
+    mutantStack.push(40);
+    mutantStack.push(50);
+    mutantStack.pop();
+
+    newStk.push(1);
+    newStk.push(2);
+    mutantStack.swap(newStk);
+
+    std::cout << "MutantStack elements: ";
+    for (MutantStack<int>::iterator it = mutantStack.begin(); it != mutantStack.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "newStk elements: ";
+    for (MutantStack<int>::iterator it = newStk.begin(); it != newStk.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

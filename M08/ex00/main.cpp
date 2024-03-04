@@ -17,7 +17,6 @@ int main(){
         std::list<int> lst;
         for (int j = 1; j <= 5; j++){
             lst.push_back(j);
-            j++;
         }
         std::list<int>::iterator it1 = easyfind<std::list<int> >(lst, 0);
         std::cout << *it1 << std::endl;

@@ -4,11 +4,9 @@
 #include <iostream>
 #include <exception>
 #include <vector>
-#define IT std::vector<int>::iterator
 
 class Span {
     private:
-
         Span();
         unsigned int maxSize;
         std::vector<int> vec;
@@ -17,6 +15,7 @@ class Span {
         Span(unsigned int N);
         Span(const Span& other);
         Span &operator=(const Span &other);
+        ~Span();
 
         void addNumber(int toAdd);
         int shortestSpan();
@@ -37,7 +36,7 @@ class Span {
                 const char *what() const throw();
         };
 
-        void addNumbers(IT first, IT last);
+        void addNumbers(std::vector<int> v);
 
 };
 

@@ -15,13 +15,10 @@ const char *NoOccurrence::what() const throw(){
 
 template <typename container>
 typename container::iterator easyfind(container &param1, int param2){
-    typename container::iterator it;
-    
-    for (it = param1.begin(); it != param1.end(); it++){
-        if (*it == param2){
-            std::cout << "value found: ";
-            return it;
-        }
+    typename container::iterator it = find(param1.begin(), param1.end(), param2);
+    if (it != param1.end()){
+        std::cout << "value found: ";
+        return it;
     }
     throw NoOccurrence();
 }

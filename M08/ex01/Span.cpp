@@ -15,6 +15,8 @@ Span &Span::operator=(const Span &other){
     return *this;
 }
 
+Span::~Span(){}
+
 void Span::addNumber(int toAdd){
     if (vec.size() > maxSize)
         throw fullSpan();
@@ -38,8 +40,8 @@ int Span::longestSpan(){
     if (vec.size() <= 1 || vec.empty())
         throw NoSpan();
     
-    std::sort(vec.begin(), vec.end());
-    int max = vec[vec.size() - 1] - vec[0];
+    int max = *std::max_element(vec.begin(), vec.end()) - *std::min_element(vec.begin(), vec.end());
+
     return max;
 }
 
@@ -47,17 +49,23 @@ int Span::shortestSpan(){
     if (vec.size() <= 1 || vec.empty())
         throw NoSpan();
 
-    int min;    
-    std::sort(vec.begin(), vec.end());
-    min = vec[1] - vec[0];
-    for (size_t i = 2; i < vec.size(); i++){
-        if (min > vec[i] - vec[i-1])
-            min = vec[i] - vec[i-1];
+    int min, span;
+    std::vector<int> v(vec);
+    
+    std::sort(v.begin(), v.end());
+    min = v[1] - v[0];
+    for (size_t i = 2; i < v.size(); i++){
+        span = v[i] - v[i-1];
+        if (min > span)
+            min = span;
     }
     return min;
 }
 
-void Span::addNumbers(IT first, IT last){
+void Span::addNumbers(std::vector<int> v){
+    std::vector<int>::iterator first = v.begin();
+    std::vector<int>::iterator last = v.end();
+
     unsigned int dis = std::distance(first, last);
     if (dis + this->vec.size() > this->maxSize)
         throw TooMany();
