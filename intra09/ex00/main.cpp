@@ -12,11 +12,21 @@
 
 #include "BitcoinExchange.hpp"
 
-int main(int ac, char **av)
-{
-    if (ac != 2){
-        std::cerr << "Error: could not open file." << std::endl;
-        return 1;
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        cerr << "Usage: " << argv[0] << " <input_file>" << endl;
+        return EXIT_FAILURE;
     }
+    const string& filename = argv[1];
     
+    map<string, float> database = {
+        {"2011-01-01", 0.3},
+        {"2011-01-05", 0.2},
+        {"2011-01-10", 0.1},
+        {"2012-01-15", 0.7}
+    };
+
+    BitcoinExchange(database, filename);
+
+    return 0;
 }
