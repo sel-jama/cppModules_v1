@@ -21,4 +21,18 @@
 #include <vector>
 #include <algorithm>
 
+class BitcoinExchange{
+    private:
+        std::map<std::string, float> dataBase;
+        std::string inuptFile;
+    
+    public:
+
+        void setDatabase(const std::map<std::string, float> &data);
+        void setInputfile(const std::string &filename);
+        std::map<std::string, float> &parseInput(void);
+        void calculateBitcoin(void);
+        const std::string &findDate(const std::string & date);
+};
+
 #endif

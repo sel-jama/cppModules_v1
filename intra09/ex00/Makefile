@@ -10,3 +10,27 @@
 #                                                                              #
 # **************************************************************************** #
 
+SRCS = main.cpp BitcoinExchange.cpp
+
+OBJS = ${SRCS:.cpp=.o}
+
+CPPFLAGS = -Wall -Wextra -Werror
+
+CC = c++
+
+NAME = Bitcoin
+
+HEADERS = BitcoinExchange.hpp
+
+all: ${NAME}
+
+${NAME}: ${OBJS} ${HEADERS}
+	${CC} ${CPPFLAGS} ${OBJS} -o ${NAME}
+
+clean:
+	rm -rf ${OBJS}
+
+fclean: clean
+	rm -rf ${NAME}
+
+re: fclean all
