@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:34:34 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/03/04 23:38:43 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/03/06 23:58:56 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ int main(int ac, char* av[]) {
     }
     BitcoinExchange obj;
     
-    std::map<std::string, float> database = {
-        {"2011-01-01", 0.3},
-        {"2011-01-05", 0.2},
-        {"2011-01-10", 0.1},
-        {"2012-01-15", 0.7}
-    };
+    obj.loadData();
 
     obj.setInputfile(av[1]);
-    obj.setDatabase(database);
+    // obj.setDatabase(database);
     obj.calculateBitcoin();
 
     return 0;

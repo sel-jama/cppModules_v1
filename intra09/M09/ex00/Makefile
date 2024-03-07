@@ -6,7 +6,7 @@
 #    By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 23:34:37 by sel-jama          #+#    #+#              #
-#    Updated: 2024/03/04 23:34:38 by sel-jama         ###   ########.fr        #
+#    Updated: 2024/03/07 01:38:13 by sel-jama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CPPFLAGS = -Wall -Wextra -Werror
 
 CC = c++
 
-NAME = Bitcoin
+NAME = btc
 
 HEADERS = BitcoinExchange.hpp
 
