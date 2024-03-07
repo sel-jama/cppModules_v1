@@ -12,6 +12,16 @@
 
 #include "BitcoinExchange.hpp"
 
+float ft_stof(const std::string &str){
+    char *endptr;
+    errno = 0;
+    float value = strtof(str.c_str(), &endptr);
+
+    if (*endptr != '\0' || errno == ERANGE)
+        throw (std::invalid_argument("Invalid argument ."));
+
+    return value;
+}
 
 void BitcoinExchange::setInputfile(const std::string &filename){
     this->inuptFile = filename;
@@ -84,7 +94,7 @@ void BitcoinExchange::calculateBitcoin(void){
             validateLine(line);
             validateDate(dateStr);
             checkLimits(valueStr);
-            value = stof(valueStr);
+            value = ft_stof(valueStr);
         } 
         catch (const std::invalid_argument& e)
         {
@@ -125,7 +135,7 @@ void BitcoinExchange::loadData(void){
         std::string date, strValue;
         getline(ss, date, ',');
         getline(ss, strValue);
-        float value = stof(strValue);
+        float value = ft_stof(strValue);
         this->dataBase[date] = value; 
     }
 }
