@@ -19,8 +19,7 @@ int main(int argc, char *argv[]) {
     }
 
     PmergeMe sorter(sequence);
-    sorter.sortAndMeasureTime();
+    sorter.sortAndmesure();
 
     return 0;
 }
-

@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/04 23:34:37 by sel-jama          #+#    #+#              #
-#    Updated: 2024/03/07 01:38:13 by sel-jama         ###   ########.fr        #
+#    Created: 2024/03/07 22:14:52 by sel-jama          #+#    #+#              #
+#    Updated: 2024/03/07 22:15:32 by sel-jama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp BitcoinExchange.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -18,9 +18,9 @@ CPPFLAGS = -Wall -Wextra -Werror
 
 CC = c++
 
-NAME = btc
+NAME = PmergeMe
 
-HEADERS = BitcoinExchange.hpp
+HEADERS = PmergeMe.hpp
 
 all: ${NAME}
 

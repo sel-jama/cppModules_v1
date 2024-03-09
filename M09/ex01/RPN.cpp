@@ -1,37 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/07 20:35:27 by sel-jama          #+#    #+#             */
+/*   Updated: 2024/03/08 03:45:10 by sel-jama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "Rpn.hpp"
+#include "RPN.hpp"
 
-bool isnum(const std::string &str) const{
-    for(char c: str){
-        if (c < '1' || c > '9')
-            return false;
-    }
-    return true;
+RPN::RPN(){}
+
+RPN::RPN(const RPN& other){
+    *this = other;
 }
 
-bool isopp(const std::strinng &str) const {
-    if(str.length() == 1 && *str == '*' || *str == '+' 
-        || *str == '-' || *str == '/')
+RPN &RPN::operator=(const RPN &other){
+    this->stk = other.stk;
+    return *this;
+}
+
+RPN::~RPN(){}
+
+bool isnum(const std::string &str){
+    if (str.length() == 1 && str[0] >= '1' && str[0] <= '9')
         return true;
     return false;
 }
 
-void calculateValue(const std::string& str){
-    stringstream ss(str);
+bool isopp(const std::string &str){
+    if(str.length() == 1 && (str[0] == '*' || str[0] == '+' 
+        || str[0] == '-' || str[0] == '/'))
+        return true;
+    return false;
+}
 
+int calcuteOpp(char &opp, int &a, int &b){
+    switch (opp)
+    {
+        case ('*'):         
+            return b*a;
+        case ('+'):
+            return b+a;
+        case ('-'):
+            return b-a;
+        case ('/'):
+            if (b != 0)
+                return b/a;
+        default:
+            throw std::invalid_argument("Error.");
+    }
+}
+
+const std::stack<int> &RPN::getStk(void) const{
+    return this->stk;
+}
+
+void RPN::calculateValue(const std::string& str){
+    std::stringstream ss(str);
     std::string portion;
-    std::istringstream iss;
-    while(getline(ss, portion, ' ')){
-        iss.clear();
-        iss << portion;
-        int num;
-        if(isnum(portion)){
-            iss >> num;
-            this->stk.push(num);
-        }
-        else if (isopp(portion)){
-            stk.top();
-        }
 
+    while(getline(ss, portion, ' ')){
+        int num = 0;
+        if(isnum(portion)){
+            sscanf(portion.c_str(), "%d", &num);
+            stk.push(num);
+        }
+        else if (isopp(portion) && stk.size() >= 2){
+            int element1 = stk.top();
+            stk.pop();
+            int element2 = stk.top();
+            stk.pop();
+            try{
+                int res = calcuteOpp(portion[0], element1, element2);
+                stk.push(res);
+            }
+            catch(std::invalid_argument &e){
+                std::cerr << e.what() << std::endl;
+                exit(EXIT_FAILURE);
+            }
+        }
+        else {
+            std::cerr << "Error" << std::endl; 
+            exit(EXIT_FAILURE);
+        }
     }
 } 

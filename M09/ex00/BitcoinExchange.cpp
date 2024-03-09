@@ -6,11 +6,25 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:34:28 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/03/07 04:53:05 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:43:01 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+BitcoinExchange::BitcoinExchange(){}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other){
+    *this = other;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange& other){
+    this->dataBase = other.dataBase;
+    this->inuptFile = other.inuptFile;
+    return *this;
+}
+
+BitcoinExchange::~BitcoinExchange(){}
 
 float ft_stof(const std::string &str){
     char *endptr;

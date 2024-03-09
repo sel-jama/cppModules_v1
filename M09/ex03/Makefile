@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/07 20:43:02 by sel-jama          #+#    #+#              #
-#    Updated: 2024/03/07 20:43:43 by sel-jama         ###   ########.fr        #
+#    Created: 2024/03/07 22:14:52 by sel-jama          #+#    #+#              #
+#    Updated: 2024/03/07 22:15:32 by sel-jama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -18,9 +18,9 @@ CPPFLAGS = -Wall -Wextra -Werror
 
 CC = c++
 
-NAME = RPN
+NAME = PmergeMe
 
-HEADERS = RPN.hpp
+HEADERS = PmergeMe.hpp
 
 all: ${NAME}
 
