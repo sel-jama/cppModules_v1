@@ -14,7 +14,7 @@ SRCS = main.cpp PmergeMe.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 CC = c++
 

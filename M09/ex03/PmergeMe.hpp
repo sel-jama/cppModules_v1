@@ -17,14 +17,14 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <map>
+#include <climits>
 #include <vector>
 #include <algorithm>
 
 class PmergeMe{
     private:
         std::vector<int> vec;
-        // std::list<int> lst;
+        std::list<int> lst;
     
     public:
         PmergeMe(const std::vector<int> &vec);

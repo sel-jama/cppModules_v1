@@ -1,25 +1,29 @@
-#include <iostream>
-#include <vector>
+
 #include "PmergeMe.hpp"
 
-int main(int argc, char *argv[]) {
-    if (argc < 2) {
+int main(int ac, char *av[]) {
+    if (ac < 2) {
         std::cerr << "Error: No sequence provided." << std::endl;
         return 1;
     }
 
-    std::vector<int> sequence;
-    for (int i = 1; i < argc; ++i) {
-        int num = atoi(argv[i]);
-        if (num <= 0) {
+    std::vector<int> vec;
+    std::list<int> lst;
+
+    long num;
+    char *endptr;
+    for (int i = 1; i < ac; ++i) {
+        num = strtol(av[i], &endptr, 10);
+        if (*endptr != '\0' || num < 0 || num > INT_MAX) {
             std::cerr << "Error: Invalid input sequence." << std::endl;
             return 1;
         }
-        sequence.push_back(num);
+        vec.push_back(num);
+        lst.push_back(num);
     }
 
-    PmergeMe sorter(sequence);
+    PmergeMe sorter(vec);
     sorter.sortAndmesure();
-
+    
     return 0;
 }

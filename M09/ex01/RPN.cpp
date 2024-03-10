@@ -26,7 +26,7 @@ RPN &RPN::operator=(const RPN &other){
 RPN::~RPN(){}
 
 bool isnum(const std::string &str){
-    if (str.length() == 1 && str[0] >= '1' && str[0] <= '9')
+    if (str.length() == 1 && str[0] >= '0' && str[0] <= '9')
         return true;
     return false;
 }
