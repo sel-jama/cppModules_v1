@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/10 04:07:47 by sel-jama          #+#    #+#             */
+/*   Updated: 2024/03/10 05:54:30 by sel-jama         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
@@ -22,8 +33,9 @@ int main(int ac, char *av[]) {
         lst.push_back(num);
     }
 
-    PmergeMe sorter(vec);
+    PmergeMe sorter(vec, lst);
     sorter.sortAndmesure();
+
     
     return 0;
 }
