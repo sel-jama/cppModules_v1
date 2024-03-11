@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:34:34 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/03/06 23:58:56 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/03/10 08:56:05 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main(int ac, char* av[]) {
     obj.loadData();
 
     obj.setInputfile(av[1]);
-    // obj.setDatabase(database);
     obj.calculateBitcoin();
 
     return 0;

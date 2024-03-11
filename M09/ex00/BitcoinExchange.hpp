@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:34:32 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/03/08 03:12:49 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:51:18 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class BitcoinExchange{
     
         void setInputfile(const std::string &filename);
         void calculateBitcoin(void);
-        const std::string &findDate(const std::string & date);
+        const std::string findDate(const std::string & date);
         void loadData(void);
         void checkLimits(const std::string& str) const;
         void validateDate(const std::string& date) const;

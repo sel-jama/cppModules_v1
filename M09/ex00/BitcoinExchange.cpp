@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:34:28 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/03/08 03:43:01 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/03/11 03:49:25 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,19 @@ void BitcoinExchange::setInputfile(const std::string &filename){
     this->inuptFile = filename;
 }
 
-const std::string &BitcoinExchange::findDate(const std::string& date)
+const std::string BitcoinExchange::findDate(const std::string& date)
 {
     std::map<std::string, float>::iterator it = dataBase.upper_bound(date);
 
     if (it != dataBase.begin())
         return prev(it)->first;
-    return it->first;
-
+    return "";
 }
 
 void BitcoinExchange::checkLimits(const std::string& str) const{
-    std::istringstream iss(str);
+    std::stringstream ss(str);
     double value;
-    iss >> value;
+    ss >> value;
     
     if (value > 1000)
         throw tooLarge();
@@ -64,21 +63,54 @@ void BitcoinExchange::checkLimits(const std::string& str) const{
 }
 
 void BitcoinExchange::validateDate(const std::string& date) const{
-    int y, m, d;
-    if (sscanf(date.c_str(), "%d-%d-%d", &y, &m, &d) != 3 ||
-        m < 1 || m > 12 || d < 1 || d > 31 ||
-        ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) ||
-        (m == 2 && ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) ? d > 29 : d > 28)) {
-        throw InvalidDate();
-    }
+    std::string year, month, day;
+    long y, m, d;
+    char *end;
 
+    std::stringstream ss(date);
+    getline(ss, year, '-');
+    getline(ss, month, '-');
+    getline(ss, day, ' ');
+    if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+            throw InvalidDate();
+    
+    y = strtol(year.c_str(), &end, 10);
+    if (*end != '\0')
+        throw InvalidDate();
+    m = strtol(month.c_str(), &end, 10);
+    if (*end != '\0')
+        throw InvalidDate();
+    d = strtol(day.c_str(), &end, 10);
+    if (*end != '\0')
+        throw InvalidDate();
+    
+    if (m < 1 || m > 12 || d < 1 || d > 31 ||
+        ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30))
+        throw InvalidDate();
+        
+    if (m == 2){
+        if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
+            if (d > 29)
+                throw InvalidDate();
+        }
+        else{
+            if (d > 28)
+                throw InvalidDate();
+        }
+    }
+}
+
+bool my_isdigit(int c){
+    if (c >= '0' || c <= '9' || c == '-' || c == '+')
+        return true ;
+    return false;
 }
 
 void BitcoinExchange::validateLine(const std::string& line) const{
     size_t pos = line.find('|');
 
-    if (line.length() < 14 || pos == std::string::npos || line.at(4) != '-' 
-        || line.at(7) != '-' || line.at(pos+1) != ' ' || line.at(pos-1) != ' ')
+    if (line.length() < 14 || pos != 11 || line.at(4) != '-' 
+        || line.at(7) != '-' || line.at(pos+1) != ' ' || line.at(pos-1) != ' ' || !isdigit(line.at(pos+2)))
             throw InvalidDate();
 }
 
@@ -130,7 +162,8 @@ void BitcoinExchange::calculateBitcoin(void){
             continue ;
         }
         float exchangeRate = dataBase.at(closestDate);
-        std::cout << dateStr << " => " << value << " = " << (value * exchangeRate) << std::endl;
+        double result = value * exchangeRate;
+        std::cout << dateStr << " => " << value << " = " << result << std::endl;
     }
 }
 
