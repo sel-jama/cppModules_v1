@@ -6,7 +6,7 @@
 /*   By: sel-jama <sel-jama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 03:03:48 by sel-jama          #+#    #+#             */
-/*   Updated: 2024/03/10 10:11:09 by sel-jama         ###   ########.fr       */
+/*   Updated: 2024/03/11 04:41:42 by sel-jama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int removeStraggler(T& arr) {
     return straggler;
 }
 
-
 //merge_insert sort for std::vector
 void insertion_sort_pairs(std::vector<std::pair<int, int> >& A, int n) {
     if (n <= 0) return;
@@ -123,7 +122,6 @@ std::vector<int> create_s(std::vector<std::pair<int, int> > &pairs, int straggle
         std::vector<int>::iterator it = std::lower_bound(S.begin(), S.end(), pend[j]);
         S.insert(it, pend[j]);
     }
-
     return S;
 }
 
