@@ -1,3 +1,0 @@
-Reinterpret Cast:
-
-->The reinterpret cast is used to perform low-level type conversions that are not supported by the other types of explicit type casting. It is used to convert between unrelated data types, such as converting a pointer to an integer or vice versa. The reinterpret cast does not perform any type of checking and can lead to undefined behavior if used incorrectly
